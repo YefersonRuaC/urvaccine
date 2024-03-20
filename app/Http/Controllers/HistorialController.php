@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inscrito;
 use Illuminate\Http\Request;
 
 class HistorialController extends Controller
@@ -11,7 +12,21 @@ class HistorialController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Inscrito::class);
+
         return view('historiales.index');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Inscrito $inscrito)
+    {
+        $this->authorize('view', $inscrito);
+
+        return view('historiales.show', [
+            'inscrito' => $inscrito
+        ]);
     }
 
     /**
@@ -26,14 +41,6 @@ class HistorialController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
     {
         //
     }

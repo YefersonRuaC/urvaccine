@@ -25,10 +25,10 @@
                     <td class="py-4 border-r border-gray-300">
                         <p class="">{{ $inscrito->user->nacimiento->toFormattedDateString() }}</p>
                     </td>
-                    <td class=" py-4 border-r border-gray-300">
+                    <td class="py-4 border-r border-gray-300">
                         <p class="uppercase">{{ $inscrito->genero }}</p>
                     </td>
-                    <td class=" py-4 border-r border-gray-300">
+                    <td class="py-4 border-r border-gray-300">
                         <p class="">{{ $inscrito->created_at->diffForhumans() }}</p>
                     </td>
                     <td class="flex justify-center px-5 py-4">
@@ -38,15 +38,15 @@
                         >
                             Asistencia
                         </a>
-                    </td>        
-                @empty
+                    </td>  
+                </tr>      
+            @empty
                 <tr class="md:col-span-4">
                     <td colspan="6" class="p-3 text-center text-gray-600 uppercase">
-                        Aun no hay usuarios inscritos a esta campaña
+                        Aun no hay usuarios inscritos a esta jornada de vacunacion
                     </td>
                 </tr>
-                @endforelse
-            </tr>
+            @endforelse
         </tbody>
     </table>
 </div>

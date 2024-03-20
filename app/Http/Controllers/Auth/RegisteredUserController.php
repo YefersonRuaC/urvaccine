@@ -38,7 +38,7 @@ class RegisteredUserController extends Controller
             'apellido' => ['required', 'string', 'max:255'],
             'telefono' => ['required', 'numeric', 'digits_between:7,10'],
             'tipo_doc' => ['required', 'string', 'in:cc,ce,pa,rc'],
-            'documento' => ['required',  Rules\Password::defaults()],
+            'documento' => ['required', 'unique:'.User::class],
             'genero' => ['required', 'string', 'in:masculino,femenino'],
             'nacimiento' => ['required', 'date'],
         ]);
@@ -51,7 +51,7 @@ class RegisteredUserController extends Controller
             'apellido' => $request->apellido,
             'telefono' => $request->telefono,
             'tipo_doc' => $request->tipo_doc,
-            'documento' => Hash::make($request->documento),
+            'documento' => $request->documento,
             'genero' => $request->genero,
             'nacimiento' => $request->nacimiento
         ]);

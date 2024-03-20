@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\RolAdmin;
 use App\Http\Middleware\RolMascota;
 use App\Http\Middleware\RolPersona;
+use App\Http\Middleware\RolUsuario;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -70,6 +71,7 @@ class Kernel extends HttpKernel
         //NUEVOS middlewares CREADOS
         'rol.admin' => RolAdmin::class,
         'rol.persona' => RolPersona::class,
-        'rol.mascota' => RolMascota::class
+        'rol.mascota' => RolMascota::class,
+        'rol.usuario' => RolUsuario::class
     ];
 }

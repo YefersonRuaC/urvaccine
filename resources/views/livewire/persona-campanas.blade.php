@@ -6,7 +6,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2">
                 <div class="md:h-64 md:w-64 h-full w-full shadow-sm">
                     <a href="{{ route('personas.show', $campana->id) }}">
-                        <img src="{{ asset('storage/campaigns/' . $campana->imagen) }}" alt="{{'Imagen Camapaña' . $campana->titulo}}" class="rounded-md h-full">
+                        <img src="{{ asset('storage/campaigns/' . $campana->imagen) }}" alt="{{'Imagen Camapaña' . $campana->titulo}}" 
+                        class="rounded-md h-full">
                     </a>
                 </div>
                 <div class="flex flex-col justify-center items-center md:justify-start md:items-start">

@@ -4,6 +4,11 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 
+use App\Models\Campana;
+use App\Models\Inscrito;
+use App\Models\Vacuna;
+use App\Policies\UsuarioPolicy;
+use App\Policies\VacunaPolicy;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -17,7 +22,10 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        //
+        //Igual que en Kernel.php para los middleware, aqui debemos registrar nuestro Policies
+        //No me funciono al poner el Campana::class => CampanaPolicy::class
+        Vacuna::class => VacunaPolicy::class,
+        Inscrito::class => UsuarioPolicy::class
     ];
 
     /**

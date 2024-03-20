@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\CampanaController;
 use App\Http\Controllers\HistorialController;
-use App\Http\Controllers\HistoricoController;
 use App\Http\Controllers\InscritoController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\PersonaController;
@@ -46,12 +45,13 @@ Route::get('/inscritos/{inscrito}/edit', [InscritoController::class, 'edit'])->m
 Route::get('/personas', [PersonaController::class, 'index'])->middleware(['auth', 'verified', 'rol.persona'])->name('personas.index');
 Route::get('/personas/{campana}', [PersonaController::class, 'show'])->middleware(['auth', 'verified', 'rol.persona'])->name('personas.show');
 
-//HISTORIALES
-Route::get('/historicos', [HistorialController::class, 'index'])->middleware(['auth', 'verified'])->name('historiales.index');
-
 //MASCOTAS
 Route::get('/mascotas', [MascotaController::class, 'index'])->middleware(['auth', 'verified', 'rol.mascota'])->name('mascotas.index');
 Route::get('/mascotas/{campana}', [MascotaController::class, 'show'])->middleware(['auth', 'verified', 'rol.mascota'])->name('mascotas.show');
+
+//HISTORIALES
+Route::get('/historiales', [HistorialController::class, 'index'])->middleware(['auth', 'verified', 'rol.usuario'])->name('historiales.index');
+Route::get('/historiales/{inscrito}', [HistorialController::class, 'show'])->middleware(['auth', 'verified', 'rol.usuario'])->name('historiales.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

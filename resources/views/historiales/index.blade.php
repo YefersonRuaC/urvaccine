@@ -9,12 +9,9 @@
         <div class="max-w-9xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <h1 class="text-3xl text-green-800 text-center mt-4">Historial: 
-                        {{-- <span class="font-bold text-green-700">{{ $campana->titulo }}</span> --}}
-                    </h1>
-                    <div class="px-24">
-                        <livewire:mostrar-historiales
-                        />
+                    <h1 class="text-3xl text-black text-center mt-5 mb-8 font-bold">Historial de vacunacion</h1>
+                    <div class="px-0 md:px-20">
+                        <livewire:mostrar-historiales />
                     </div>
                 </div>
             </div>
