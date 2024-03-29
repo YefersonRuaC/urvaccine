@@ -75,10 +75,10 @@
                 <div class="mx-2 text-lg">
                     <h3 class="font-bold">Direccion:</h3>
                     <p class="text-gray-600">{{ $inscrito->campana->direccion }}</p>
-                    <h3 class="font-bold">Departamento:</h3>
-                    <p class="uppercase text-gray-600">{{ $inscrito->campana->departamento }}</p>
                     <h3 class="font-bold">Ciudad/municipio:</h3>
                     <p class="text-gray-600">{{ $inscrito->campana->municipio }}</p>
+                    <h3 class="font-bold">Departamento:</h3>
+                    <p class="text-gray-600">{{ $inscrito->campana->departamento }}</p>
                 </div>
             </div>
         </div>

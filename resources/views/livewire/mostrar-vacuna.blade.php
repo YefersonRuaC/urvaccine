@@ -9,8 +9,8 @@
                     <h2 class="text-xl font-semibold text-gray-900 mb-4">Tipo de usuario: 
                         <span class="font-normal text-blue-500 uppercase">{{ $vacuna->tipo_user }}</span>
                     </h2>
-                    <p class="text-gray-700">Genero: 
-                        <span class="text-blue-950 font-semibold">{{ $vacuna->genero }}</span>
+                    <p class="text-gray-700 text-lg">Genero: 
+                        <span class="text-blue-950 font-semibold uppercase">{{ $vacuna->genero }}</span>
                     </p>
                 </div>
                 <!-- Card 2 -->
@@ -18,7 +18,7 @@
                     <h2 class="text-xl font-semibold text-gray-900 mb-4">Tipo de vacuna: 
                         <span class="font-normal text-blue-500 uppercase">{{ $vacuna->tipo }}</span>
                     </h2>
-                    <p class="text-gray-700">Precio de la vacuna: 
+                    <p class="text-gray-700 text-lg">Precio de la vacuna: 
                         <span class="text-blue-950 font-semibold">${{ number_format($vacuna->precio, 0, '.', ',') }}</span>
                     </p>
                 </div>
@@ -27,10 +27,10 @@
                     <h2 class="text-xl font-semibold text-gray-900 mb-4">Edades: 
                         <span class="font-normal text-blue-500">({{ $vacuna->edad_desde }} - {{ $vacuna->edad_hasta }})</span>
                     </h2>
-                    <p class="text-gray-700 mb-3">Desde: 
+                    <p class="text-gray-700 mb-3 text-lg">Desde: 
                         <span class="text-blue-950 font-semibold">{{ $vacuna->edad_desde }}</span>
                     </p>
-                    <p class="text-gray-700">Hasta: 
+                    <p class="text-gray-700 text-lg">Hasta: 
                         <span class="text-blue-950 font-semibold">{{ $vacuna->edad_hasta }}</span>
                     </p> 
                 </div>
@@ -39,10 +39,10 @@
                     <h2 class="text-xl font-semibold text-gray-900 mb-4">Enfermedad que previene: 
                         <span class="font-normal text-blue-500 uppercase">{{ $vacuna->enfermedad }}</span>
                     </h2>
-                    <p class="text-gray-700">Propagacion: 
+                    <p class="text-gray-700 text-lg">Propagacion: 
                         <span class="text-blue-950 font-semibold">{{ $vacuna->propagacion }}</span>
                     </p>
-                    <p class="text-gray-700">Sintomas: 
+                    <p class="text-gray-700 text-lg">Sintomas: 
                         <span class="text-blue-950 font-semibold">{{ $vacuna->sintomas }}</span>
                     </p>
                 </div>

@@ -294,7 +294,7 @@
                         {{ __('Jornadas') }}
                     </x-nav-link>
                     <x-nav-link :href="route('historiales.index')" :active="request()->routeIs('historiales.index')">
-                        {{ __('Mi historial') }}
+                        {{ __('Historial mi mascota') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -364,7 +364,7 @@
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('historiales.index')" :active="request()->routeIs('historiales.index')">
-                {{ __('Mi historial') }}
+                {{ __('Historial mi mascota') }}
             </x-responsive-nav-link>
         </div>
 

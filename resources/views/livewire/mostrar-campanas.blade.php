@@ -5,7 +5,7 @@
             {{-- Imagen --}}
             <div class="md:w-1/5 md:flex-none mb-4 sm:mb-0 shadow-md rounded-md">
                 <div class="h-full -to-tl rounded-xl">
-                    <a href="{{ route('campanas.show', $campana->id) }}">
+                    <a href="{{ route('campanas.show', $campana->titulo) }}">
                         <img src="{{ asset('storage/campaigns/' . $campana->imagen) }}" alt="{{ 'Imagen campaña ' . $campana->titulo }}"
                             class="object-cover w-full h-full rounded-md" />
                     </a>
@@ -15,14 +15,14 @@
             <div class="max-w-full md:w-1/2 mx-4 border-r md:border-gray-300 border-white mt-5 md:mt-0 
             justify-center md:justify-start">
                 <div class="block w-full ml-5">
-                    <a href="{{ route('campanas.show', $campana->id) }}" class="text-xl font-bold bg-blue-50 py-2 
+                    <a href="{{ route('campanas.show', $campana->titulo) }}" class="text-xl font-bold bg-blue-50 py-1 
                         px-2 rounded-md shadow-sm hover:bg-blue-200">
                         {{ $campana->titulo }}
                     </a>
                 </div>
                 <div class="flex flex-col md:flex-row md:flex-none md:gap-32 gap-0 md:items-start items-center">
                     <div class="ml-0 md:ml-5 mt-5 md:mt-0">
-                        <a  href="{{ route('vacunas.show', $campana->vacuna->id) }}" >
+                        <a  href="{{ route('vacunas.show', $campana->vacuna->nombre) }}" >
                             <p class="mt-4 text-blue-700 hover:text-blue-950 underline">Vacuna: 
                                 <span class="font-semibold">{{ $campana->vacuna->nombre }}</span>
                             </p>

@@ -28,13 +28,13 @@ Route::get('/', function () {
 Route::get('/vacunas/index', [VacunaController::class, 'index'])->middleware(['auth', 'verified'])->name('vacunas.index');
 Route::get('/vacunas/create', [VacunaController::class, 'create'])->middleware(['auth', 'verified'])->name('vacunas.create');
 Route::get('vacunas/{vacuna}/edit', [VacunaController::class, 'edit'])->middleware(['auth', 'verified'])->name('vacunas.edit');
-Route::get('vacunas/{vacuna}', [VacunaController::class, 'show'])->middleware(['auth', 'verified'])->name('vacunas.show');
+Route::get('vacunas/{vacuna:nombre}', [VacunaController::class, 'show'])->middleware(['auth', 'verified'])->name('vacunas.show');
 
 //CAMPAÑAS
 Route::get('/dashboard', [CampanaController::class, 'index'])->middleware(['auth', 'verified', 'rol.admin'])->name('campanas.index');
 Route::get('/campanas/create', [CampanaController::class, 'create'])->middleware(['auth', 'verified'])->name('campanas.create');
 Route::get('/campanas/{campana}/edit', [CampanaController::class, 'edit'])->middleware(['auth', 'verified'])->name('campanas.edit');
-Route::get('/campanas/{campana}', [CampanaController::class, 'show'])->middleware(['auth', 'verified'])->name('campanas.show');;
+Route::get('/campanas/{campana:titulo}', [CampanaController::class, 'show'])->middleware(['auth', 'verified'])->name('campanas.show');;
 
 //INSCRITOS
 Route::get('/inscritos/{campana}', [InscritoController::class, 'index'])->middleware(['auth', 'verified', 'rol.admin'])->name('inscritos.index');
@@ -43,14 +43,15 @@ Route::get('/inscritos/{inscrito}/edit', [InscritoController::class, 'edit'])->m
 //---------------------------------------------USUARIOS--------------------------------------------------------
 //PERSONAS
 Route::get('/personas', [PersonaController::class, 'index'])->middleware(['auth', 'verified', 'rol.persona'])->name('personas.index');
-Route::get('/personas/{campana}', [PersonaController::class, 'show'])->middleware(['auth', 'verified', 'rol.persona'])->name('personas.show');
+Route::get('/personas/{campana:titulo}', [PersonaController::class, 'show'])->middleware(['auth', 'verified', 'rol.persona'])->name('personas.show');
 
 //MASCOTAS
 Route::get('/mascotas', [MascotaController::class, 'index'])->middleware(['auth', 'verified', 'rol.mascota'])->name('mascotas.index');
-Route::get('/mascotas/{campana}', [MascotaController::class, 'show'])->middleware(['auth', 'verified', 'rol.mascota'])->name('mascotas.show');
+Route::get('/mascotas/{campana:titulo}', [MascotaController::class, 'show'])->middleware(['auth', 'verified', 'rol.mascota'])->name('mascotas.show');
 
 //HISTORIALES
 Route::get('/historiales', [HistorialController::class, 'index'])->middleware(['auth', 'verified', 'rol.usuario'])->name('historiales.index');
+Route::get('/historiales/pdf', [HistorialController::class, 'pdf'])->middleware(['auth', 'verified', 'rol.usuario'])->name('historiales.pdf');
 Route::get('/historiales/{inscrito}', [HistorialController::class, 'show'])->middleware(['auth', 'verified', 'rol.usuario'])->name('historiales.show');
 
 Route::middleware('auth')->group(function () {

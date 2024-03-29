@@ -9,7 +9,7 @@
         <div class="max-w-9xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <h1 class="text-3xl text-black text-center mt-5 mb-8 font-bold">Historial de vacunacion</h1>
+                    <h1 class="text-3xl text-black text-center mt-5 mb-4 font-bold">Historial de vacunacion</h1>
                     <div class="px-0 md:px-20">
                         <livewire:mostrar-historiales />
                     </div>

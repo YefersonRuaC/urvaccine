@@ -14,8 +14,7 @@
             <h2 class="hover:text-green-600 text-lg text-center md:text-left">Enfermedad que previene: 
                 <span class="font-bold ">{{ $campana->vacuna->enfermedad }}</span>
             </h2>
-            <p class="text-md text-gray-700 hover:text-gray-900">{{ $campana->descripcion }} Lorem ipsum dolor 
-            sit amet consectetur, adipisicing elit. Doloribus, magni perspiciatis quis iusto officiis nam tempora</p>
+            <p class="text-md text-gray-700 hover:text-gray-900">{{ $campana->descripcion }}</p>
         </div>
         <!-- End Left Side -->
         <!-- Right Side -->

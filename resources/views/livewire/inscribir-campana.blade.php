@@ -1,4 +1,32 @@
 <div class="p-3 shadow-md rounded-md mt-3 md:mt-0">
+    <?php
+        // SDK de Mercado Pago
+        use MercadoPago\MercadoPagoConfig;
+        use MercadoPago\Client\Preference\PreferenceClient;
+        use App\Models\Pago;
+        
+        // Agrega credenciales
+        MercadoPagoConfig::setAccessToken(config('services.mercadopago.token'));
+
+        if($this->campana->vacuna->precio !== 0) {
+
+            $client = new PreferenceClient();
+            $preference = $client->create([
+                "external_reference" => $this->campana->id,
+                "items"=> array(
+                    array(
+                        "id" => $this->campana->vacuna->id,
+                        "title" => $this->campana->vacuna->nombre,
+                        "quantity" => 1,
+                        "unit_price" => $this->campana->vacuna->precio
+                    )
+                )
+            ]);
+
+        } else {
+            $preference = null;
+        }
+    ?>
     <h2 class="text-center text-xl font-bold">Inscribete a esta jornada de vacunacion</h2>
     
     <div class="border-b border-gray-300 mt-3 mb-3"></div>
@@ -56,12 +84,42 @@
 
                 <div class="border-b border-gray-300 mt-4 mb-5"></div>
 
-                <x-primary-button class="w-full bg-blue-600 hover:bg-blue-800">
-                    Inscribirme
-                </x-primary-button>
+                @if ($campana->vacuna->precio !== 0)
+                    <div id="wallet_container"></div>
+                @else
+                    <x-primary-button class="w-full bg-blue-600 hover:bg-blue-800">
+                        Inscribirme
+                    </x-primary-button>
+                @endif
+                
             </form>
         @endif
     @endif
 
-    
+    {{-- SDK MercadoPago.js --}}
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
+    <script>
+        const mp = new MercadoPago("{{config('services.mercadopago.key')}}");
+        const bricksBuilder = mp.bricks();
+
+        //Verificar si $preference esta definido antes de usarlo
+        @if ($preference)
+            //Si la vrble $preference es un objeto de tipo (vacuna de pago)
+            @if (is_object($preference))
+                mp.bricks().create("wallet", "wallet_container", {
+                    initialization: {
+                        preferenceId: "{{$preference->id}}",
+                    },
+                        customization: {
+                        texts: {
+                        valueProp: 'smart_option',
+                        },
+                    },
+                }); 
+            @else //Si $preference no es un objeto de tipo (vacuna de pago)
+                console.log("Vacuna gratuita: {{$preference}}");
+            @endif
+        @endif
+    </script>
 </div>

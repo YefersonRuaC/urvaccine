@@ -7,7 +7,7 @@
             <div class="flex w-full items-center justify-between space-x-6 p-6">
                 <div class="flex-1 truncate">
                     <div class="flex items-center space-x-3">
-                        <a  href="{{ route('vacunas.show', $vacuna->id) }}">
+                        <a  href="{{ route('vacunas.show', $vacuna->nombre) }}">
                             <h1 class="truncate font-bold text-2xl text-gray-900">{{ $vacuna->nombre }}</h1>
                         </a>
                         <span class="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-3
@@ -26,7 +26,7 @@
             </div>
             <div class="-mt-px flex divide-x divide-gray-200">
                 <div class="flex w-0 flex-1">
-                    <a  href="{{ route('vacunas.show', $vacuna->id) }}" 
+                    <a  href="{{ route('vacunas.show', $vacuna->nombre) }}" 
                         class="text-white bg-gray-700 hover:bg-gray-800 relative inline-flex w-0 
                         flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent 
                         py-4 text-sm font-semibold"
@@ -80,7 +80,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
     
     <script>
-
         //Debemos pasarl el id de la vacuna (vacunaId)
         Livewire.on('mostrarAlerta', (vacunaId) => {
             Swal.fire({
@@ -106,6 +105,5 @@
             }
             })
         });
-        
     </script>
 @endpush

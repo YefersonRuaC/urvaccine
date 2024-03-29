@@ -5,18 +5,18 @@
         transition-all duration-250 w-full mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2">
                 <div class="md:h-64 md:w-64 h-full w-full shadow-sm">
-                    <a href="{{ route('personas.show', $campana->id) }}">
+                    <a href="{{ route('personas.show', $campana->titulo) }}">
                         <img src="{{ asset('storage/campaigns/' . $campana->imagen) }}" alt="{{'Imagen Camapaña' . $campana->titulo}}" 
                         class="rounded-md h-full">
                     </a>
                 </div>
                 <div class="flex flex-col justify-center items-center md:justify-start md:items-start">
-                    <a href="{{ route('personas.show', $campana->id) }}" class="text-xl font-semibold text-gray-900 text-center md:text-left bg-green-50
+                    <a href="{{ route('personas.show', $campana->titulo) }}" class="text-xl font-semibold text-gray-900 text-center md:text-left bg-green-50
                     hover:bg-green-100 rounded-md py-1 px-3 shadow-sm">
                         {{ $campana->titulo }}
                     </a>
                     <p class="text-gray-500 mt-1 text-center md:text-left">
-                        {{ $campana->descripcion }} Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, modi? Ea ad possimus asperiores.
+                        {{ $campana->descripcion }} 
                     </p>
                     <div class="mt-1 flex flex-col justify-center items-center md:justify-start md:items-start">
                         <p class="font-bold">{{ $campana->municipio }}, {{ $campana->departamento }}</p>
@@ -47,7 +47,7 @@
                     <p class="font-bold text-green-800 text-xl">${{ number_format($campana->vacuna->precio, 0, '.', ',') }}</p>
                 </div>
                 <div class="md:col-span-2">
-                    <a href="{{ route('personas.show', $campana->id) }}" class="flex justify-center items-center bg-green-600 hover:bg-green-700 text-white 
+                    <a href="{{ route('personas.show', $campana->titulo) }}" class="flex justify-center items-center bg-green-600 hover:bg-green-700 text-white 
                     rounded-md py-2 font-extrabold">
                         Ver campaña
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7 ml-1">
