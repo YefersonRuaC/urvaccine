@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use App\Models\Pago;
 use App\Models\Campana;
+use App\Notifications\NuevaInscripcion;
+use App\Notifications\NuevoInscrito;
 use Livewire\Component;
 
 class InscribirCampana extends Component
@@ -51,6 +53,13 @@ class InscribirCampana extends Component
                 //Este cero lo editara el admin (por un 1) si el usuario va a la jornada y se vacuna
                 'asistio' => 0
             ]);
+
+            //CREAR NOTIFICACION Y ENVIAR EL EMAIL al ADMINISTRADOR
+            $this->campana->administrador->notify(new NuevoInscrito($this->campana->id, $this->campana->titulo, auth()->user()->id));
+
+            //ENVIAR EMAIL DE INSCRIPCION al USUARIO
+            $this->campana->usuario->notify(new NuevaInscripcion($this->campana->id, $this->campana->titulo, auth()->user()->id));
+
         } else {
             
         }

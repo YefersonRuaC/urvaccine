@@ -43,4 +43,20 @@ class Campana extends Model
         // return $this->hasMany(Inscrito::class)->orderBy('created_at', 'DESC');
         return $this->hasMany(Inscrito::class);
     }
+
+    //Como no hay ningun modelo llamado Administrador. No estamos siguiendo las pautas de laravel y tenemos
+    //que especificar a que nos estamos refiriendo.
+    //Esta relacion va hacia el administrador quien crea las campañas de vacunacion
+    public function administrador()
+    {
+        //Una vacante pertenece a un usuario
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    //Paralelamente a la relacion anterior de 'administrador'. Crearemos esta 'usuario' para enviarle 
+    //un email de confirmacion cuando un usuario se inscriba a una campaña de vacunacion
+    public function usuario()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

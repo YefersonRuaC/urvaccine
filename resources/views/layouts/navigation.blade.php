@@ -34,6 +34,22 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden md:flex md:items-center md:ms-6">
+                <!--Notificaciones-->
+                <div class="flex gap-2 mr-7">
+                    <a href="{{ route('notificaciones') }}" class="relative flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray" class="w-9 h-9 hover:bg-white rounded-md">
+                            <path fill-rule="evenodd" d="M5.25 9a6.75 6.75 0 0 1 13.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 0 1-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 1 1-7.48 0 24.585 24.585 0 0 1-4.831-1.244.75.75 0 0 1-.298-1.205A8.217 8.217 0 0 0 5.25 9.75V9Zm4.502 8.9a2.25 2.25 0 1 0 4.496 0 25.057 25.057 0 0 1-4.496 0Z" clip-rule="evenodd" />
+                        </svg>  
+                        @if(auth()->user()->unreadNotifications->count() > 0)
+                            <span class="absolute top-0 right-0 bg-red-500 hover:bg-red-600 text-white w-5 h-5 rounded-full flex items-center justify-center font-extrabold">
+                                {{ auth()->user()->unreadNotifications->count() }}
+                            </span>
+                        @endif
+                    </a>
+                    <p class="font-semibold text-gray-600 flex items-center justify-center">
+                        @choice('Notificacion|Notificaciones', auth()->user()->unreadNotifications->count())
+                    </p>
+                </div>                
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center gap-1 px-3 py-2 border border-transparent text-md leading-4 font-medium rounded-md bg-white text-gray-500  hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
@@ -107,6 +123,22 @@
             <x-responsive-nav-link :href="route('vacunas.create')" :active="request()->routeIs('vacunas.create')">
                 {{ __('Crear vacuna') }}
             </x-responsive-nav-link>
+
+            <div class="flex gap-2">
+                <a href="{{ route('notificaciones') }}" class="relative flex ml-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray" class="w-9 h-9 hover:bg-white rounded-md">
+                        <path fill-rule="evenodd" d="M5.25 9a6.75 6.75 0 0 1 13.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 0 1-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 1 1-7.48 0 24.585 24.585 0 0 1-4.831-1.244.75.75 0 0 1-.298-1.205A8.217 8.217 0 0 0 5.25 9.75V9Zm4.502 8.9a2.25 2.25 0 1 0 4.496 0 25.057 25.057 0 0 1-4.496 0Z" clip-rule="evenodd" />
+                    </svg>  
+                    @if(auth()->user()->unreadNotifications->count() > 0)
+                        <span class="absolute top-0 right-0 bg-red-500 hover:bg-red-600 text-white w-5 h-5 rounded-full flex items-center justify-center font-extrabold">
+                            {{ auth()->user()->unreadNotifications->count() }}
+                        </span>
+                    @endif
+                </a>
+                <p class="font-semibold text-gray-600 flex items-center justify-center">
+                    @choice('Notificacion|Notificaciones', auth()->user()->unreadNotifications->count())
+                </p>
+            </div> 
         </div>
 
         <!-- Responsive Settings Options -->

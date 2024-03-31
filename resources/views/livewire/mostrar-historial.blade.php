@@ -1,5 +1,5 @@
 <div>
-    <a href="{{ route('historiales.index') }}" class="inline-flex items-center justify-center bg-gray-300 mb-2
+    <a href="{{ route('historiales.index') }}" class="inline-flex items-center justify-center bg-gray-300 mb-5
     hover:bg-gray-400 py-2 px-5 rounded-md text-black text-xs font-extrabold uppercase text-center gap-1 shadow-md"
     >
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" class="w-7 h-7">

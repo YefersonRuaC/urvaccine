@@ -4,6 +4,7 @@ use App\Http\Controllers\CampanaController;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\InscritoController;
 use App\Http\Controllers\MascotaController;
+use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VacunaController;
@@ -39,6 +40,9 @@ Route::get('/campanas/{campana:titulo}', [CampanaController::class, 'show'])->mi
 //INSCRITOS
 Route::get('/inscritos/{campana}', [InscritoController::class, 'index'])->middleware(['auth', 'verified', 'rol.admin'])->name('inscritos.index');
 Route::get('/inscritos/{inscrito}/edit', [InscritoController::class, 'edit'])->middleware(['auth', 'verified', 'rol.admin'])->name('inscritos.edit');
+
+//NOTIFICACIONES
+Route::get('/notificaciones', NotificacionController::class)->middleware('auth', 'verified', 'rol.admin')->name('notificaciones');
 
 //---------------------------------------------USUARIOS--------------------------------------------------------
 //PERSONAS
