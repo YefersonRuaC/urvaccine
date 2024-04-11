@@ -5,6 +5,7 @@ use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\InscritoController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\NotificacionController;
+use App\Http\Controllers\PaginasController;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VacunaController;
@@ -21,9 +22,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//PAGINAS
+Route::get('/', [PaginasController::class, 'home'])->name('home');
+Route::get('/nosotros', [PaginasController::class, 'nosotros'])->name('pages.nosotros');
+Route::get('/contactanos', [PaginasController::class, 'contactanos'])->name('pages.contactanos');
 
 //VACUNAS
 Route::get('/vacunas/index', [VacunaController::class, 'index'])->middleware(['auth', 'verified'])->name('vacunas.index');

@@ -18,7 +18,7 @@ class MostrarCampanas extends Component
 
     public function render()
     {
-        $campanas = Campana::where('user_id', auth()->user()->id)->paginate(3);
+        $campanas = Campana::where('user_id', auth()->user()->id)->paginate(4);
         // dd($campanas);
 
         return view('livewire.mostrar-campanas', [

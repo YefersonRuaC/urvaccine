@@ -18,7 +18,7 @@ class MostrarVacunas extends Component
 
     public function render()
     {
-        $vacunas = Vacuna::where('user_id', auth()->user()->id)->paginate(2);
+        $vacunas = Vacuna::where('user_id', auth()->user()->id)->paginate(4);
 
         // dd($vacunas);
 

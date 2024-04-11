@@ -17,7 +17,7 @@ class RolUsuario
     {
         if ($request->user()->rol !== 1 && $request->user()->rol !== 2) {
 
-            return redirect()->route('login');
+            return redirect()->route('home');
         }
 
         return $next($request);

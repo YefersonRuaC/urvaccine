@@ -53,16 +53,13 @@ class InscribirCampana extends Component
                 //Este cero lo editara el admin (por un 1) si el usuario va a la jornada y se vacuna
                 'asistio' => 0
             ]);
-
-            //CREAR NOTIFICACION Y ENVIAR EL EMAIL al ADMINISTRADOR
-            $this->campana->administrador->notify(new NuevoInscrito($this->campana->id, $this->campana->titulo, auth()->user()->id));
-
-            //ENVIAR EMAIL DE INSCRIPCION al USUARIO
-            $this->campana->usuario->notify(new NuevaInscripcion($this->campana->id, $this->campana->titulo, auth()->user()->id));
-
-        } else {
-            
         }
+
+        //CREAR NOTIFICACION Y ENVIAR EL EMAIL al ADMINISTRADOR
+        $this->campana->administrador->notify(new NuevoInscrito($this->campana->id, $this->campana->titulo, auth()->user()->id));
+
+        //ENVIAR EMAIL DE INSCRIPCION al USUARIO
+        $this->campana->usuario->notify(new NuevaInscripcion($this->campana->id, $this->campana->titulo, auth()->user()->id));
 
         //Mostrar el mensaje de exito
         session()->flash('mensaje', 'Se realizo la inscripcion correctamente. ¡Te esperamos!');
