@@ -17,7 +17,8 @@ class RolAdmin
     {
         if ($request->user()->rol !== 3) {
 
-            return redirect()->route('home');
+            // return redirect()->route('home');
+            return redirect()->back();
         }
         
         return $next($request);

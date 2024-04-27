@@ -20,8 +20,22 @@ class RedirectIfAuthenticated
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
+            //Arreglar la redireccion segun el rol de usuario
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+
+                if($request->user()->rol == 1) {
+
+                    return redirect(RouteServiceProvider::PERSONA);
+
+                } elseif($request->user()->rol == 2) {
+                    
+                    return redirect(RouteServiceProvider::MASCOTA);
+
+                } elseif($request->user()->rol == 3) {
+                    
+                    return redirect(RouteServiceProvider::HOME);
+
+                }
             }
         }
 

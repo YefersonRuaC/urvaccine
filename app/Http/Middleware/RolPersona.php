@@ -20,7 +20,8 @@ class RolPersona
         //$request->user()->rol es igual a auth()->user()->rol
         if ($request->user()->rol !== 1) {
 
-            return redirect()->route('home');
+            // return redirect()->route('home');
+            return redirect()->back();
         }
         
         return $next($request);
